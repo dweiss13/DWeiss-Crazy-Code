@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI Calculator</title>
+        <style>
+                .mystyleA{
+                    color: blue
+                }
+                .mystyleB{
+                    color: darkgreen
+                }
+                .mystyleC{
+                    color: rgb(224, 165, 13)
+                }
+                .mystyleD{
+                    color: orangered
+                }
+                .mystyleE{
+                    color: red
+                }
+                h1{
+                    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+                    
+                }
+                form{
+                    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+                }
+                body{
+                    background-color: aqua
+                }
+        
+        </style>
+
+        <script>
+                function calculateBMI(){
+                    
+                    var weight = document.getElementById("weight").value;
+                    weight = parseFloat(weight);
+                    var feet = document.getElementById("feet").value;
+                    feet = parseFloat(feet);
+                    var inches = document.getElementById("inches").value;
+                    inches = parseFloat(inches);
+                    var height = (feet*12 + inches);
+
+                    if(feet >= 0 && inches >= 0 && weight >= 0){
+                    var BMI = (703 * weight)/ (height*height);
+                    var bmi1 = document.getElementById("bmi");
+                    document.getElementById("bmi").innerHTML = BMI;
+                   
+
+                   
+                        bmi1.classList.remove("mystyleA")
+                        bmi1.classList.remove("mystyleB")
+                        bmi1.classList.remove("mystyleC")
+                        bmi1.classList.remove("mystyleD")
+                        bmi1.classList.remove("mystyleE")
+                    
+                        
+                        
+                        if(BMI < 18.5){
+                        bmi1.classList.add("mystyleA");
+                        }
+                        if(BMI >= 18.5 && BMI < 24.9){
+                        bmi1.classList.add("mystyleB")
+                        }
+                        if(BMI >= 25 && BMI < 29.9){
+                        bmi1.classList.add("mystyleC")
+                        }
+                        if(BMI >= 30 && BMI < 39.9){
+                        bmi1.classList.add("mystyleD")
+                     }
+                        if(BMI > 40){
+                        bmi1.classList.add("mystyleE");
+                    
+                    }
+                   }
+                    
+                    
+                }
+            </script>
+            <body>
+                <form>
+                    Please enter your weight in LBS:
+                    <input type="text" id="weight"><br>
+                    Please enter your height
+                    Feet:
+                    <input type="text" id="feet"><br>
+                    Inches:
+                    <input type="text" id="inches"><br>
+                </form>
+                <div id="Calculate" onclick="calculateBMI()">Calculate</div>
+                <div id="bmi"></div>
+                <h1 class="mystyleA">Blue = Underweight</h1>
+                <h1 class="mystyleB">Green = Normal</h1>
+                <h1 class="mystyleC">Yellow = Overweight</h1>
+                <h1 class="mystyleD">Orange = Obese</h1>
+                <h1 class="mystyleE">Red = Extremely Obese</h1>
+            </body>
+            <h1>Tess and Mackenzie Use BMI!</h1>
+            <h1>Why Shouldn't You?</h1>
+            <img src="2.jpg" alt="">
+        </html>
